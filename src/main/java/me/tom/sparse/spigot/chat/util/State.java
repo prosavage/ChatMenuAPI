@@ -1,7 +1,7 @@
 package me.tom.sparse.spigot.chat.util;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
@@ -11,12 +11,12 @@ public class State<V>
 {
 	private Consumer<State<V>> changeCallback;
 	
-	@Nonnull
+	@NotNull
 	private Function<V, V> valueFilter;
 
-	@Nullable
+	@NotNull
 	private V current;
-	@Nullable
+	@NotNull
 	private V previous;
 	
 	/**
@@ -27,7 +27,7 @@ public class State<V>
 	 * @param current     the starting value
 	 * @param valueFilter the filter for every value
 	 */
-	public State(@Nullable V current, @Nullable Function<V, V> valueFilter)
+	public State(@NotNull V current, @NotNull Function<V, V> valueFilter)
 	{
 		this.valueFilter = valueFilter == null ? v -> v : valueFilter;
 		this.current = this.valueFilter.apply(current);
@@ -38,7 +38,7 @@ public class State<V>
 	 *
 	 * @param current the starting value
 	 */
-	public State(@Nullable V current)
+	public State(@NotNull V current)
 	{
 		this(current, v -> v);
 	}
@@ -48,7 +48,7 @@ public class State<V>
 	 *
 	 * @param newValue the new value
 	 */
-	public void setCurrent(@Nullable V newValue)
+	public void setCurrent(@NotNull V newValue)
 	{
 		newValue = valueFilter.apply(newValue);
 		
@@ -81,7 +81,7 @@ public class State<V>
 	/**
 	 * @return the current value. Might be {@code null}.
 	 */
-	@Nullable
+	@NotNull
 	public V getCurrent()
 	{
 		return current;
@@ -90,7 +90,7 @@ public class State<V>
 	/**
 	 * @return the getPrevious value. Might be {@code null}.
 	 */
-	@Nullable
+	@NotNull
 	public V getPrevious()
 	{
 		return previous;
@@ -103,7 +103,7 @@ public class State<V>
 	 *
 	 * @param changeCallback the new change callback.
 	 */
-	public void setChangeCallback(@Nonnull Consumer<State<V>> changeCallback)
+	public void setChangeCallback(@NotNull Consumer<State<V>> changeCallback)
 	{
 		this.changeCallback = changeCallback;
 	}

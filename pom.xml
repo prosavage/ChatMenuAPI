@@ -6,9 +6,16 @@
 
     <groupId>me.tom.sparse.spigot.chat.menu</groupId>
     <artifactId>ChatMenuAPI</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <packaging>jar</packaging>
+
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
 
     <name>ChatMenuAPI</name>
     <description>An API for making menus inside Minecraft's chat.</description>
@@ -41,12 +48,13 @@
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
             <version>1.12-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId> <!-- Use 'netty-all' for 4.0 or above -->
             <version>4.0.23.Final</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <!--<dependency>-->
         <!--<groupId>org.spigotmc</groupId>-->
@@ -54,9 +62,10 @@
         <!--<version>1.12-R0.1-SNAPSHOT</version>-->
         <!--</dependency>-->
         <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-            <version>3.0.2</version>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>17.0.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
